@@ -1,0 +1,8 @@
+<form action="/contoh">
+    <select name="personName">
+    {% for person in people %}
+            <option value="{{ person.name }}">{{ person.name }}</option>
+    {% endfor %}
+    <select>
+    <input type="submit" value="Submit" />
+</form>
