@@ -18,6 +18,7 @@ from django.urls import path, include
 from django.conf.urls import url
 from django.views.generic.base import TemplateView
 from stock import views
+admin.site.site_header = 'ROMINV administration'
 
 # from stock.views import views_item
 

@@ -76,7 +76,9 @@ class AuthUserUserPermissions(models.Model):
 
 class Category(models.Model):
     id      = models.CharField(primary_key=True, max_length=50)
-    nama    = models.CharField(max_length=50, blank=True, null=True)
+    name    = models.CharField(max_length=50, blank=True, null=True)
+    def __str__(self):
+    	return self.name
 
     class Meta:
         managed     = False
@@ -85,7 +87,9 @@ class Category(models.Model):
 
 class Division(models.Model):
     id      = models.CharField(primary_key=True, max_length=50)
-    nama    = models.CharField(max_length=50, blank=True, null=True)
+    name    = models.CharField(max_length=50, blank=True, null=True)
+    def __str__(self):
+    	return self.name
 
     class Meta:
         managed     = False
@@ -138,8 +142,10 @@ class DjangoSession(models.Model):
 
 class Employee(models.Model):
     id              = models.CharField(primary_key=True, max_length=50)
-    nama            = models.CharField(max_length=50, blank=True, null=True)
+    name            = models.CharField(max_length=50, blank=True, null=True)
     id_division     = models.ForeignKey(Division, models.DO_NOTHING, db_column='id_division', blank=True, null=True)
+    def __str__(self):
+        return self.name
 
     class Meta:
         managed = False
@@ -149,6 +155,8 @@ class Employee(models.Model):
 class Inventory(models.Model):
     serial_number_item  = models.ForeignKey('Item', models.DO_NOTHING, db_column='serial_number_item', blank=True, null=True)
     id_employee         = models.ForeignKey(Employee, models.DO_NOTHING, db_column='id_employee', blank=True, null=True)
+    def __str__(self):
+        return ("%s , %s , %s" % (self.serial_number_item.serial_number,self.serial_number_item.name,self.id_employee.name))
 
     class Meta:
         managed = False
@@ -156,10 +164,12 @@ class Inventory(models.Model):
 
 
 class Item(models.Model):
-    nama            = models.CharField(max_length=50, blank=True, null=True)
+    name            = models.CharField(max_length=50, blank=True, null=True)
     id_category     = models.ForeignKey(Category, models.DO_NOTHING, db_column='id_category')
     serial_nexsoft  = models.CharField(max_length=50, blank=True, null=True)
     serial_number   = models.CharField(primary_key=True, max_length=50)
+    def __str__(self):
+        return ("%s , %s" % (self.serial_number,self.name))
 
     class Meta:
         managed     = False

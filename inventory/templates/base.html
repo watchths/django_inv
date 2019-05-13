@@ -19,15 +19,15 @@
   <div class="d-flex" id="wrapper">
 
     <!-- Sidebar -->
-    <div class="bg-light border-right" id="sidebar-wrapper">
-      <div class="sidebar-heading">INVENTORY</div>
+    <div class="bg-info border-right" id="sidebar-wrapper">
+      <div class="sidebar-heading text-warning">INVENTORY</div>
       <div class="list-group list-group-flush">
-        <a href="{% url 'schedule' %}" class="list-group-item list-group-item-action bg-light">Schedule</a>
-        <a href="{% url 'imp' %}" class="list-group-item list-group-item-action bg-light">Imp</a>
-        <a href="{% url 'imp_ssd' %}" class="list-group-item list-group-item-action bg-light">Imp Only Ssd</a>
-        <a href="{% url 'imp_hdd' %}" class="list-group-item list-group-item-action bg-light">Imp Only Hdd</a>
-        <a href="{% url 'cs' %}" class="list-group-item list-group-item-action bg-light">Cs</a>
-        <a href="{% url 'dev' %}" class="list-group-item list-group-item-action bg-light">Dev</a>
+        <a href="{% url 'schedule' %}" class="list-group-item list-group-item-action bg-info text-light">Schedule</a>
+        <a href="{% url 'imp' %}" class="list-group-item list-group-item-action bg-info text-light">Imp</a>
+        <a href="{% url 'imp_ssd' %}" class="list-group-item list-group-item-action bg-info text-light">Imp Only Ssd</a>
+        <a href="{% url 'imp_hdd' %}" class="list-group-item list-group-item-action bg-info text-light">Imp Only Hdd</a>
+        <a href="{% url 'cs' %}" class="list-group-item list-group-item-action bg-info text-light">Cs</a>
+        <a href="{% url 'dev' %}" class="list-group-item list-group-item-action bg-info text-light">Dev</a>
       </div>
     </div>
     <!-- /#sidebar-wrapper -->
@@ -35,11 +35,11 @@
     <!-- Page Content -->
     <div id="page-content-wrapper">
 
-      <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-        <button class="btn btn-primary" id="menu-toggle">Menu</button>
+      <nav class="navbar navbar-expand-lg navbar-light bg-info border-bottom">
+        <button class="btn btn-outline-primary text-light" id="menu-toggle">Menu</button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <div class="navbar-nav ml-auto mt-2 mt-lg-0">
+          <div class="navbar-nav ml-auto mt-2 mt-lg-0 text-light">
             <main>
               {% block navbar %}
               {% endblock %}
