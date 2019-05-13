@@ -156,7 +156,6 @@ class Inventory(models.Model):
 
 
 class Item(models.Model):
-    id              = models.IntegerField()
     nama            = models.CharField(max_length=50, blank=True, null=True)
     id_category     = models.ForeignKey(Category, models.DO_NOTHING, db_column='id_category')
     serial_nexsoft  = models.CharField(max_length=50, blank=True, null=True)
@@ -235,3 +234,25 @@ class V_Imp_Ssd(models.Model):
     class Meta:
         managed     = False
         db_table    = 'v_imp_ssd'
+
+
+class V_Item_Cs(models.Model):
+    name            = models.CharField(max_length=50, blank=True, null=True)
+    division        = models.CharField(max_length=50, blank=True, null=True)
+    item            = models.CharField(max_length=50, blank=True, null=True)
+    serial_number   = models.CharField(max_length=50, blank=True, null=True)
+
+    class Meta:
+        managed     = False
+        db_table    = 'v_item_cs'
+
+
+class V_Item_Dev(models.Model):
+    name            = models.CharField(max_length=50, blank=True, null=True)
+    division        = models.CharField(max_length=50, blank=True, null=True)
+    item            = models.CharField(max_length=50, blank=True, null=True)
+    serial_number   = models.CharField(max_length=50, blank=True, null=True)
+
+    class Meta:
+        managed     = False
+        db_table    = 'v_item_dev'

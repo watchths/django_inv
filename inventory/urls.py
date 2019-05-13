@@ -26,8 +26,10 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
     path('', TemplateView.as_view(template_name='home.html'), name='home'), # new
     url(r'imp/$', views.views_item_imp, name='imp'),
-    url(r'schedule/$', views.views_schedule, name='schedule'),
     url(r'imp/ssd', views.render_ssd_person, name='imp_ssd'),
     url(r'imp/hdd', views.render_hdd_person, name='imp_hdd'),
+    url(r'cs/$', views.views_item_cs, name='cs'),
+    url(r'dev/$', views.views_item_dev, name='dev'),
+    url(r'schedule/$', views.views_schedule, name='schedule'),
     url(r'contoh', views.render_contoh, name="contoh")
 ]

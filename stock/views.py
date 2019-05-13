@@ -4,7 +4,7 @@ from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.shortcuts import render_to_response, get_object_or_404
 
 from django.db.models import Count 
-from stock.models import Division,Category,Item,Employee,Inventory,V_Item,V_Item_Imp,V_Schedule, V_Imp_Hdd, V_Imp_Ssd
+from stock.models import Division, Category, Item, Employee, Inventory, V_Item, V_Item_Imp, V_Schedule, V_Imp_Hdd, V_Imp_Ssd, V_Item_Cs, V_Item_Dev
  
 # def views_category(request):
 #     category_list = Category.objects.all().order_by('id')
@@ -51,3 +51,11 @@ def render_hdd_person (request):
 def render_contoh (request):
     # process hasil request
     return render_to_response('contoh.html', {'request': request.GET.get('personName')})
+
+def views_item_cs(request):
+    list_item = V_Item_Cs.objects.values('name','division','item','serial_number').order_by('name')
+    return render_to_response('show_item_cs.html', {'items': list_item})
+
+def views_item_dev(request):
+    list_item = V_Item_Dev.objects.values('name','division','item','serial_number').order_by('name')
+    return render_to_response('show_item_dev.html', {'items': list_item})
