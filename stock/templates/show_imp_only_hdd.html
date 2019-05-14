@@ -16,6 +16,7 @@
 <table class="table table-striped table-hover table-sm">
       <thead class="thead-light">
       <tr>
+            <th>NO</th>
             <th>NAME</th>
             <th>DIVISION</th>
             <th>ITEM</th>
@@ -26,6 +27,7 @@
       <tbody>
       {% for person in people %}
       <tr>
+            <td>{{ forloop.counter }}</td>
             <td>{{ person.name }}</td>
             <td>{{ person.division }}</td>
             <td>{{ person.item }}</td>
