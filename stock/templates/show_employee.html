@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}dashboard{% endblock %}
+
+{% block navbar %}
+{% if user.is_authenticated %}
+  Hi {{ user.username }}!
+  <p><a href="{% url 'logout' %}">logout</a></p>
+{% else %}
+  <p>You are not logged in</p>
+  <a href="{% url 'login' %}">login</a>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+<table class="table table-striped table-hover table-sm">
+      <thead class="thead-light">
+      <tr>
+            <th>NO</th>
+            <th>ID</th>
+            <th>NAME</th>
+            <th>DIVISION</th>
+      </tr>
+      </thead>
+      
+      <tbody>
+      {% for person in people %}
+      <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ person.id }}</td>
+            <td>{{ person.name }}</td>
+            <td>{{ person.division }}</td>
+      {% endfor %}
+      </tbody>     
+</table>
+{% endblock %}

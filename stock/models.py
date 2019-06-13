@@ -145,7 +145,7 @@ class Employee(models.Model):
     name            = models.CharField(max_length=50, blank=True, null=True)
     id_division     = models.ForeignKey(Division, models.DO_NOTHING, db_column='id_division', blank=True, null=True)
     def __str__(self):
-        return self.name
+        return ("%s , %s , %s" % (self.id,self.name,self.id_division.name))
 
     class Meta:
         managed = False
@@ -169,7 +169,7 @@ class Item(models.Model):
     serial_nexsoft  = models.CharField(max_length=50, blank=True, null=True)
     serial_number   = models.CharField(primary_key=True, max_length=50)
     def __str__(self):
-        return ("%s , %s" % (self.serial_number,self.name))
+        return ("%s , %s , %s" % (self.serial_number,self.name,self.id_category.name))
 
     class Meta:
         managed     = False
@@ -266,3 +266,13 @@ class V_Item_Dev(models.Model):
     class Meta:
         managed     = False
         db_table    = 'v_item_dev'
+        
+
+class V_Employee(models.Model):
+    id          = models.CharField(primary_key=True, max_length=50)
+    name        = models.CharField(max_length=50, blank=True, null=True)
+    division    = models.CharField(max_length=50, blank=True, null=True)
+
+    class Meta:
+        managed     = False
+        db_table    = 'v_employee'
