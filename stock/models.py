@@ -145,7 +145,7 @@ class Employee(models.Model):
     name            = models.CharField(max_length=50, blank=True, null=True)
     id_division     = models.ForeignKey(Division, models.DO_NOTHING, db_column='id_division', blank=True, null=True)
     def __str__(self):
-        return ("%s , %s , %s" % (self.id,self.name,self.id_division.name))
+        return ("%s , %s , %s" % (self.name,self.id_division.name,self.id))
 
     class Meta:
         managed = False
